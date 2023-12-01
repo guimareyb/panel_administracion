@@ -35,6 +35,7 @@ public class Content {
         if (dataUpdateContent.name() != null){
             this.name = dataUpdateContent.name();
         }
+        
         if (dataUpdateContent.description() != null){
             this.description = dataUpdateContent.description();
         }
