@@ -1,6 +1,7 @@
 package com.panel_administracion.domain.roles;
 
 import jakarta.persistence.*;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -20,7 +21,7 @@ public class Roles {
     private String description;
     private Boolean flag;
 
-    public Roles(DataRolesResponse dataRolesResponse){
+    public Roles(DataRolesInsert dataRolesResponse){
         this.flag = true;
         this.name = dataRolesResponse.name();
         this.description = dataRolesResponse.description();

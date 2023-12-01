@@ -6,5 +6,5 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface RolesRepository extends JpaRepository<Roles, Long> {
-    Page<Content> findByFlagTrue(Pageable pagination);
+    Page<Roles> findByFlagTrue(Pageable pagination);
 }
