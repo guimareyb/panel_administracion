@@ -27,7 +27,7 @@ public class User {
     private LocalDateTime registrationDate;
     private Boolean flag;
 
-    public User(DataListUser dataListUser){
+    public User(DataUserResponse dataListUser){
         this.flag = true;
         this.name = dataListUser.name();
         this.lastname = dataListUser.lastname();
@@ -42,27 +42,27 @@ public class User {
         this.flag = false;
     }
 
-    public void updateUser(DataUpdateUser dataUpdateUser){
-        if (dataUpdateUser.name() != null){
-            this.name = dataUpdateUser.name();
+    public void updateUser(DataUserUpdate dataUserUpdate){
+        if (dataUserUpdate.name() != null){
+            this.name = dataUserUpdate.name();
         }
-        if (dataUpdateUser.lastname() != null){
-            this.lastname = dataUpdateUser.lastname();
+        if (dataUserUpdate.lastname() != null){
+            this.lastname = dataUserUpdate.lastname();
         }
-        if (dataUpdateUser.email() != null){
-            this.email = dataUpdateUser.email();
+        if (dataUserUpdate.email() != null){
+            this.email = dataUserUpdate.email();
         }
-        if(dataUpdateUser.birthdate() != null){
-            this.birthdate = dataUpdateUser.birthdate();
+        if(dataUserUpdate.birthdate() != null){
+            this.birthdate = dataUserUpdate.birthdate();
         }
-        if (dataUpdateUser.identificationDocument() != null){
-            this.identificationDocument = dataUpdateUser.identificationDocument();
+        if (dataUserUpdate.identificationDocument() != null){
+            this.identificationDocument = dataUserUpdate.identificationDocument();
         }
-        if (dataUpdateUser.nationality() != null){
-            this.nationality = dataUpdateUser.nationality();
+        if (dataUserUpdate.nationality() != null){
+            this.nationality = dataUserUpdate.nationality();
         }
-        if (dataUpdateUser.registrationDate() != null){
-            this.registrationDate = dataUpdateUser.registrationDate();
+        if (dataUserUpdate.registrationDate() != null){
+            this.registrationDate = dataUserUpdate.registrationDate();
         }
     }
 }

@@ -1,6 +1,5 @@
 package com.panel_administracion.domain.roles;
 
-import com.panel_administracion.domain.content.DataUpdateContent;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -21,22 +20,22 @@ public class Roles {
     private String description;
     private Boolean flag;
 
-    public Roles(DataListRoles dataListRoles){
+    public Roles(DataRolesResponse dataRolesResponse){
         this.flag = true;
-        this.name = dataListRoles.name();
-        this.description = dataListRoles.description();
+        this.name = dataRolesResponse.name();
+        this.description = dataRolesResponse.description();
     }
 
     public void deactivateRoles(){
         this.flag = false;
     }
 
-    public void updateRoles(DataUpdateRoles dataUpdateRoles){
-        if (dataUpdateRoles.name() != null){
-            this.name = dataUpdateRoles.name();
+    public void updateRoles(DataRolesUpdate dataRolesUpdate){
+        if (dataRolesUpdate.name() != null){
+            this.name = dataRolesUpdate.name();
         }
-        if (dataUpdateRoles.description() !=null){
-            this.description = dataUpdateRoles.description();
+        if (dataRolesUpdate.description() !=null){
+            this.description = dataRolesUpdate.description();
         }
     }
 }

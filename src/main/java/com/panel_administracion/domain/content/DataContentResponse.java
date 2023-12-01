@@ -1,8 +1,8 @@
 package com.panel_administracion.domain.content;
 
-public record DataListContent(Long id, String name, String description) {
+public record DataContentResponse(Long id, String name, String description) {
 
-    public DataListContent(Content content){
+    public DataContentResponse(Content content){
         this(content.getId(), content.getName(), content.getDescription());
         }
 }

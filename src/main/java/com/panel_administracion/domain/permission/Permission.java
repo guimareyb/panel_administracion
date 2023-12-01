@@ -1,8 +1,8 @@
 package com.panel_administracion.domain.roles;
 
 import com.panel_administracion.domain.content.Content;
-import com.panel_administracion.domain.permission.DataRecordPermission;
-import com.panel_administracion.domain.permission.DataUpdatePermission;
+import com.panel_administracion.domain.permission.DataPermissionInsert;
+import com.panel_administracion.domain.permission.DataPermissionUpdate;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -27,17 +27,17 @@ public class Permission {
     @JoinColumn(name = "content_id")
     private Content content;
 
-    public Permission(DataRecordPermission dataRecordPermission, Content content){
+    public Permission(DataPermissionInsert dataPermissionInsert, Content content){
         this.flag = true;
         this.content = content;
-        this.name = dataRecordPermission.name();
+        this.name = dataPermissionInsert.name();
     }
 
     public void deactivatePermission(){
         this.flag = false;
     }
 
-    public void updatePermission(DataUpdatePermission dataUpdatePermission){
+    public void updatePermission(DataPermissionUpdate dataUpdatePermission){
         if (dataUpdatePermission.name() != null){
             this.name = dataUpdatePermission.name();
         }

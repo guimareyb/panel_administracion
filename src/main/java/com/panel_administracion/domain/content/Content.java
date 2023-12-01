@@ -21,7 +21,7 @@ public class Content {
     private String description;
     private Boolean flag;
 
-    public Content(DataRecordContent dataRecordContent){
+    public Content(DataContentInsert dataRecordContent){
         this.flag = true;
         this.name = dataRecordContent.name();
         this.description = dataRecordContent.description();
@@ -31,11 +31,11 @@ public class Content {
         this.flag = false;
     }
 
-    public void updateDataContent(DataUpdateContent dataUpdateContent){
+    public void updateDataContent(DataContentUpdate dataUpdateContent){
         if (dataUpdateContent.name() != null){
             this.name = dataUpdateContent.name();
         }
-        
+
         if (dataUpdateContent.description() != null){
             this.description = dataUpdateContent.description();
         }
