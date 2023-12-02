@@ -1,4 +1,4 @@
-package com.panel_administracion.domain.roles;
+package com.panel_administracion.domain.permission;
 
 import com.panel_administracion.domain.content.Content;
 import com.panel_administracion.domain.permission.DataPermissionInsert;
@@ -27,9 +27,9 @@ public class Permission {
     @JoinColumn(name = "content_id")
     private Content content;
 
-    public Permission(DataPermissionInsert dataPermissionInsert, Content content){
+    public Permission(DataPermissionInsert dataPermissionInsert){
         this.flag = true;
-        this.content = content;
+        this.content = new Content(dataPermissionInsert.contentId(),"","",true);
         this.name = dataPermissionInsert.name();
     }
 

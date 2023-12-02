@@ -7,6 +7,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<User, Long> {
-    Page<Content> findByFlagTrue(Pageable pagination);
+    Page<User> findByFlagTrue(Pageable pagination);
 }
 
