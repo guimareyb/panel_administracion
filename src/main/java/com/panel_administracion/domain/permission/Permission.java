@@ -27,9 +27,9 @@ public class Permission {
     @JoinColumn(name = "content_id")
     private Content content;
 
-    public Permission(DataPermissionInsert dataPermissionInsert){
+    public Permission(DataPermissionInsert dataPermissionInsert, Content content){
         this.flag = true;
-        this.content = new Content(dataPermissionInsert.contentId(),"","",true);
+        this.content = content;
         this.name = dataPermissionInsert.name();
     }
 
