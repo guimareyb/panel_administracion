@@ -2,7 +2,7 @@ package com.panel_administracion.domain.user;
 
 import jakarta.validation.constraints.NotNull;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 public record DataUserUpdate(
         @NotNull
@@ -10,9 +10,9 @@ public record DataUserUpdate(
         String name,
         String lastname,
         String email,
-        LocalDateTime birthdate,
+        LocalDate birthdate,
         String identificationDocument,
         String nationality,
-        LocalDateTime registrationDate
+        LocalDate registrationDate
 ) {
 }

@@ -1,12 +1,13 @@
 package com.panel_administracion.domain.user;
 
 import jakarta.persistence.*;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Entity(name = "User")
 @Table(name = "users")
@@ -21,21 +22,21 @@ public class User {
     private String name;
     private String lastname;
     private String email;
-    private LocalDateTime birthdate;
+    private LocalDate birthdate;
     private String identificationDocument;
     private String nationality;
-    private LocalDateTime registrationDate;
+    private LocalDate registrationDate;
     private Boolean flag;
 
-    public User(DataUserResponse dataListUser){
+    public User(@Valid DataUserInsert dataUserInsert){
         this.flag = true;
-        this.name = dataListUser.name();
-        this.lastname = dataListUser.lastname();
-        this.email = dataListUser.email();
-        this.birthdate = dataListUser.birthdate();
-        this.identificationDocument = dataListUser.identificationDocument();
-        this.nationality = dataListUser.nationality();
-        this.registrationDate = dataListUser.registrationDate();
+        this.name = dataUserInsert.name();
+        this.lastname = dataUserInsert.lastname();
+        this.email = dataUserInsert.email();
+        this.birthdate = dataUserInsert.birthdate();
+        this.identificationDocument = dataUserInsert.identificationDocument();
+        this.nationality = dataUserInsert.nationality();
+        this.registrationDate = dataUserInsert.registrationDate();
     }
 
     public void deactivateUser(){

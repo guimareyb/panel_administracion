@@ -4,7 +4,7 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 public record DataUserInsert(
         @NotBlank
@@ -15,13 +15,12 @@ public record DataUserInsert(
         @NotBlank
         String email,
         @NotNull
-        LocalDateTime birthdate,
+        LocalDate birthdate,
         @NotBlank
         String identificationDocument,
         @NotBlank
         String nationality,
         @NotNull
-        LocalDateTime registrationDate
-
+        LocalDate registrationDate
 ) {
 }

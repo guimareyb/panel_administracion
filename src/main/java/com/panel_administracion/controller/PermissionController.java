@@ -2,7 +2,6 @@ package com.panel_administracion.controller;
 
 import com.panel_administracion.domain.content.ContentRepository;
 import com.panel_administracion.domain.permission.*;
-import com.panel_administracion.domain.roles.DataRolesResponse;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,9 +48,7 @@ public class PermissionController {
     @PutMapping
     @Transactional
     public ResponseEntity<DataPermissionResponse> updataPermission (@RequestBody @Valid DataPermissionUpdate dataPermissionUpdate){
-        Permission permission = permissionRepository.getReferenceById(dataPermissionUpdate.id());
-        permission.updatePermission(dataPermissionUpdate);
-        DataPermissionResponse dataPermissionResponse = new DataPermissionResponse(permission);
+        DataPermissionResponse dataPermissionResponse = service.UpdatePermission(dataPermissionUpdate);
         return ResponseEntity.ok(dataPermissionResponse);
     }
 

@@ -2,9 +2,12 @@ package com.panel_administracion.domain.permission;
 
 import com.panel_administracion.domain.content.Content;
 import com.panel_administracion.domain.content.ContentRepository;
+import com.panel_administracion.domain.permission.validations.PermissionValidator;
 import com.panel_administracion.infra.errors.IntegrityValidation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class PermissionService {
@@ -15,12 +18,25 @@ public class PermissionService {
     @Autowired
     private ContentRepository contentRepository;
 
+    @Autowired
+    private List<PermissionValidator> validators;
+
     public DataPermissionResponse insertPermission(DataPermissionInsert dataPermissionInsert){
         if (contentRepository.findById(dataPermissionInsert.contentId()).isEmpty()){
             throw new IntegrityValidation("This id for the content was not found");
         }
+        validators.forEach(v -> v.validate(dataPermissionInsert, null) );
+
         Content content = contentRepository.findById(dataPermissionInsert.contentId()).get();
         Permission permission = permissionRepository.save(new Permission(dataPermissionInsert, content));
+        return new DataPermissionResponse(permission);
+    }
+
+    public DataPermissionResponse UpdatePermission(DataPermissionUpdate dataPermissionUpdate){
+        validators.forEach(v -> v.validate(null, dataPermissionUpdate) );
+
+        Permission permission = permissionRepository.getReferenceById(dataPermissionUpdate.id());
+        permission.updatePermission(dataPermissionUpdate);
         return new DataPermissionResponse(permission);
     }
 
