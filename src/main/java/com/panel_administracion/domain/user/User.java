@@ -23,8 +23,10 @@ public class User {
     private String lastname;
     private String email;
     private LocalDate birthdate;
+    @Column(name = "identification_document")
     private String identificationDocument;
     private String nationality;
+    @Column(name = "registration_date")
     private LocalDate registrationDate;
     private Boolean flag;
 
