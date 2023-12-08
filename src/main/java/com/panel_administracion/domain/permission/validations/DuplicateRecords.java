@@ -3,6 +3,7 @@ package com.panel_administracion.domain.permission.validations;
 import com.panel_administracion.domain.permission.DataPermissionInsert;
 import com.panel_administracion.domain.permission.DataPermissionUpdate;
 import com.panel_administracion.domain.permission.PermissionRepository;
+import jakarta.validation.ValidationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
